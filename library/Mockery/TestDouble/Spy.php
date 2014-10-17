@@ -15,9 +15,9 @@ interface Spy extends Stub
      * @param   string  $method     The method that is expected to not have been called
      * @param   array   $args       The arguments that were expected to not have been passed (optional)
      *
-     * @return MethodCallVerification
+     * @return void
      */
-    function shouldNotHaveReceived($method, array $args = array())
+    function shouldNotHaveReceived($method, array $args = array());
 }
 
 interface MethodCallVerification extends MethodExpectation
