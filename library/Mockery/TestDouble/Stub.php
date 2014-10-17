@@ -2,6 +2,8 @@
 
 namespace Mockery\TestDouble;
 
+/**
+ */
 interface Stub extends TestDouble
 {
     /**
@@ -9,6 +11,11 @@ interface Stub extends TestDouble
      * @return StubMethod
      */
     function stub($method);
+
+    /**
+     * @return void
+     */
+    function shouldIgnoreMissing();
 }
 
 /** 
