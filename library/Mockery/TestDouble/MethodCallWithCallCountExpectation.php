@@ -2,7 +2,7 @@
 
 namespace Mockery\TestDouble;
 
-class MethodCallWithCallCountExpectation 
+interface MethodCallWithCallCountExpectation 
 {
     /**
      * @param mixed $returnValue
