@@ -7,27 +7,20 @@ interface Mock extends Stub
     /**
      * @param   string  $method     The method that is expected to be called
      *
-     * @return MethodExpectation
+     * @return MethodCallExpectation
      */
     function shouldReceive($method);
 
     /**
      * @param   string  $method     The method that is expected to be called
      *
-     * @return MethodExpectation
+     * @return NegativeMethodCallExpectation
      */
     function shouldNotReceive($method);
 }
 
-interface MethodExpectation
-{
-    function zeroOrMoreTimes(); // not to be included
 
-    function once();
-    function twice();
 
-    function with($args);
 
-    // yada yada
-}
+
 
