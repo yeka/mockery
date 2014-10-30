@@ -7,7 +7,7 @@ interface Spy extends Stub
     /**
      * @param   string  $method     The method that is expected to be have been called
      *
-     * @return MethodCallVerification
+     * @return CallArgumentVerifier
      */
     function shouldHaveReceived($method);
 
@@ -19,12 +19,3 @@ interface Spy extends Stub
      */
     function shouldNotHaveReceived($method, array $args = array());
 }
-
-interface MethodCallVerification extends MethodExpectation
-{
-    function once();
-    function twice();
-
-    function with($args);
-}
-
