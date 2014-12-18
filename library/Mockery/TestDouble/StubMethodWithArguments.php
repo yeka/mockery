@@ -7,5 +7,5 @@ interface StubMethodWithArguments
     /**
      * @void
      */
-    function toReturn();
+    function toReturn($returnValue);
 }
