@@ -17,11 +17,3 @@ interface Stub extends TestDouble
      */
     function shouldIgnoreMissing();
 }
-
-/** 
- * @todo decide on andReturn/toReturn/willReturn 
- */
-interface StubMethod
-{
-
-}
