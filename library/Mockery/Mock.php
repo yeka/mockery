@@ -703,6 +703,8 @@ class Mock implements MockInterface
             } else {
                 return $this->_mockery_defaultReturnValue;
             }
+        } elseif (method_exists($this->_mockery_partial, $method) || is_callable("parent::$method")) {
+            return null;
         }
         throw new \BadMethodCallException(
             'Method ' . __CLASS__ . '::' . $method . '() does not exist on this mock object'

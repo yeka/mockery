@@ -24,6 +24,9 @@ use Mockery\Adapter\Phpunit\MockeryTestCase;
 class Mockery_MockTest extends MockeryTestCase
 {
 
+    /** @var \Mockery\Container */
+    private $container;
+
     public function setup()
     {
         $this->container = new \Mockery\Container(\Mockery::getDefaultGenerator(), \Mockery::getDefaultLoader());
@@ -85,6 +88,16 @@ class Mockery_MockTest extends MockeryTestCase
         $mock->asUndefined();
         assertThat(isNonEmptyString((string)$mock));
     }
+
+    public function testStubs()
+    {
+        $mock = $this->container->mock('ClassWithMethods');
+        $mock->shouldReceive('foo')->andReturn('new_foo');
+        $mock->shouldReceive('bao')->andReturn('new_foo');
+        assertThat($mock->foo(), equalTo('new_foo'));
+        assertThat($mock->bao(), equalTo('new_foo'));
+        $this->assertNull($mock->bar());
+    }
 }
 
 
@@ -102,4 +115,17 @@ class ClassWithToString
 
 class ClassWithNoToString
 {
+}
+
+class ClassWithMethods
+{
+    public function foo()
+    {
+        return 'foo';
+    }
+
+    public function bar()
+    {
+        return 'bar';
+    }
 }
